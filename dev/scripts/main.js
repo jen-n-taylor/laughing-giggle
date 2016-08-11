@@ -113,13 +113,16 @@ nomadApp.displayData = function(finalResult) {
 	var myTemplate = $("#myTemplate").html();
 	var template = Handlebars.compile(myTemplate);
 	var wifi;
+
 	finalResult.forEach(function(eachCity) {
 
 		// WIFI SCORE
-		wifi = (eachCity.scores.free_wifi_available * 100) + "%";
-		console.log(wifi);
-			$('.wifi').css("width", wifi);
-
+		// wifi = (eachCity.scores.free_wifi_available * 100) + "%";
+		// console.log(wifi);
+			// $('.wifi').css("width", wifi);
+		Handlebars.registerHelper('percentage', function() {
+			return eachCity.scores.free_wifi_available*100;
+		});
 
 		var finalTemplate = template(eachCity);
 		$("#result").append(finalTemplate);
