@@ -140,7 +140,11 @@ nomadApp.displayData = function(finalResult) {
 	var myTemplate = $("#myTemplate").html();
 	var template = Handlebars.compile(myTemplate);
 
+	nomadApp.splicedData = finalResult.splice(0,10);
+	nomadApp.currentData = finalResult;
 
+
+	nomadApp.splicedData.forEach(function(eachCity) {
 		// MONTHS TO VISIT 
 
 		var goodMonths = eachCity.info.monthsToVisit.map(function(month) {
