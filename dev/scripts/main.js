@@ -28,6 +28,7 @@ var userActivity;
 nomadApp.userInput = function() {
 	$('#nomadForm').on('submit', function(e) {
 		e.preventDefault();
+		$('.see_more').removeClass('hidden');
 		$('#result').empty();
     	$('.loading-screen').show();
 
@@ -149,11 +150,22 @@ nomadApp.displayData = function(finalResult) {
 	var myTemplate = $("#myTemplate").html();
 	var template = Handlebars.compile(myTemplate);
 
+<<<<<<< HEAD
+=======
+
+	// Displays first 10 objects in array
+>>>>>>> 08dca5e37acb0958b5e5f5003fb88b96678fdeea
 	nomadApp.splicedData = finalResult.splice(0,10);
 	nomadApp.currentData = finalResult;
 
 
 	nomadApp.splicedData.forEach(function(eachCity) {
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 08dca5e37acb0958b5e5f5003fb88b96678fdeea
 		// MONTHS TO VISIT 
 
 		var goodMonths = eachCity.info.monthsToVisit.map(function(month) {
@@ -164,7 +176,11 @@ nomadApp.displayData = function(finalResult) {
 			return goodMonths;
 		});
 
+
+
+
 		// WIFI SCORE
+
 		Handlebars.registerHelper('percentage', function() {
 			return eachCity.scores.free_wifi_available * 100;
 		});
@@ -182,7 +198,13 @@ nomadApp.displayData = function(finalResult) {
 		var finalTemplate = template(eachCity);
 		$("#result").append(finalTemplate);
 	});
+
+	if (finalResult.length === 0) {
+		$('.see_more').addClass('hidden');
+	}
+
 };
+
 
 $('.see_more').on('click', function() {
 	nomadApp.displayData(nomadApp.currentData);
