@@ -150,22 +150,12 @@ nomadApp.displayData = function(finalResult) {
 	var myTemplate = $("#myTemplate").html();
 	var template = Handlebars.compile(myTemplate);
 
-<<<<<<< HEAD
-=======
-
 	// Displays first 10 objects in array
->>>>>>> 08dca5e37acb0958b5e5f5003fb88b96678fdeea
 	nomadApp.splicedData = finalResult.splice(0,10);
 	nomadApp.currentData = finalResult;
 
 
 	nomadApp.splicedData.forEach(function(eachCity) {
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 08dca5e37acb0958b5e5f5003fb88b96678fdeea
 		// MONTHS TO VISIT 
 
 		var goodMonths = eachCity.info.monthsToVisit.map(function(month) {
@@ -175,9 +165,6 @@ nomadApp.displayData = function(finalResult) {
 		Handlebars.registerHelper('months', function() {
 			return goodMonths;
 		});
-
-
-
 
 		// WIFI SCORE
 
