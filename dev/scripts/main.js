@@ -25,10 +25,17 @@ var userPrice;
 var userClimate;
 var userActivity;
 
+// Information screen fades out on button click
+$('.close').on('click', function() {
+	$('.info-screen').fadeOut();
+});
+
 nomadApp.userInput = function() {
 	$('#nomadForm').on('submit', function(e) {
 		e.preventDefault();
 		$('.see_more').removeClass('hidden');
+		$('.form.container').removeClass('initial-height');
+		$('.form.container').addClass('secondary-height');
 		$('#result').empty();
     	$('.loading-screen').show();
 
@@ -75,13 +82,13 @@ nomadApp.getCities = function() {
 		var filterDataByCost;
 		filterDataByCost = data.filter(function(currentCity) {
 			if (userPrice === "cheap") {
-				return currentCity.cost.nomad.USD <= 2490;
+				return currentCity.cost.nomad.USD <= 2000;
 			}
 			else if (userPrice === "affordable") {
-				return currentCity.cost.nomad.USD <= 4624 && currentCity.cost.nomad.USD >= 2491;
+				return currentCity.cost.nomad.USD <= 3500 && currentCity.cost.nomad.USD >= 2001;
 			}
 			else if (userPrice === "expensive") {
-				return currentCity.cost.nomad.USD > 4624;
+				return currentCity.cost.nomad.USD > 3500;
 			}
 		});
 		return filterDataByCost;
@@ -92,13 +99,13 @@ nomadApp.getCities = function() {
 		var filterDataByClimate;
 		filterDataByClimate = data.filter(function(currentCity) {
 			if (userClimate === "cold") {
-				return currentCity.info.weather.temperature.celsius <= 16;
+				return currentCity.info.weather.temperature.celsius <= 18;
 			}
 			else if (userClimate === "warm") {
-				return currentCity.info.weather.temperature.celsius > 16 && currentCity.info.weather.temperature.celsius < 23;
+				return currentCity.info.weather.temperature.celsius > 18 && currentCity.info.weather.temperature.celsius < 26;
 			}
 			else if (userClimate === "hot") {
-				return currentCity.info.weather.temperature.celsius >= 23;
+				return currentCity.info.weather.temperature.celsius >= 26;
 			}
 		});
 		return filterDataByClimate;
@@ -172,15 +179,54 @@ nomadApp.displayData = function(finalResult) {
 			return eachCity.scores.free_wifi_available * 100;
 		});
 
+		// WIFI COLOR BAR
+		Handlebars.registerHelper('colorPercentage', function() {
+			if(eachCity.scores.free_wifi_available * 100 > 70) {
+				return '#03A678';
+			}
+			else if (eachCity.scores.free_wifi_available * 100 < 30){
+				return '#EF4836';
+			}
+			else {
+				return '#f1c229';
+			}
+		});
+
 		// FRIENDLY SCORE
 		Handlebars.registerHelper('friendly', function() {
 			return eachCity.scores.friendly_to_foreigners * 100;
 		});
 
+		// FRIENDLY COLOR BAR
+		Handlebars.registerHelper('colorFriendly', function() {
+			if(eachCity.scores.friendly_to_foreigners * 100 > 70) {
+				return '#03A678';
+			}
+			else if (eachCity.scores.friendly_to_foreigners * 100 < 30){
+				return '#EF4836';
+			}
+			else {
+				return '#f1c229';
+			}
+		});
+
 		// SAFETY SCORE
 		Handlebars.registerHelper('safety', function() {
 			return eachCity.scores.safety * 100;
-		}); 
+		});
+
+		// SAFETY COLOR BAR
+		Handlebars.registerHelper('colorSafety', function() {
+			if(eachCity.scores.safety * 100 > 70) {
+				return '#03A678';
+			}
+			else if (eachCity.scores.safety * 100 < 30){
+				return '#EF4836';
+			}
+			else {
+				return '#f1c229';
+			}
+		});
 		
 		var finalTemplate = template(eachCity);
 		$("#result").append(finalTemplate);
