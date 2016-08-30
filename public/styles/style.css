@@ -502,7 +502,8 @@ h2 {
   display: flex;
   align-items: center; }
   .info-screen .wrapper {
-    max-width: 640px; }
+    max-width: 640px;
+    padding: 50px; }
   .info-screen .close {
     font-size: 1.3rem;
     font-weight: 600;
