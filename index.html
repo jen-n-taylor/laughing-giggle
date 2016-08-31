@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nomad Travel</title>
+
+	<!-- Viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta name="description" content="Find your next vacation destination">
+	  
+	<!-- Open Graph General (Facebook & Pinterest) -->
+	<meta property="og:title" content="Nomad Travel">
+	<meta property="og:url" content="https://kseniaveriguina.github.io/laughing-giggle">
+	<meta property="og:description" content="Find your next vacation destination">
+	<meta property="og:image" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/meta.png">
+	<meta property="og:image:url" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/meta.png">
+
+	<!-- Twitter card meta -->
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:creator" content="@ksenia_codes">
+	<meta name="twitter:title" content="Nomad Travel">
+	<meta name="" ="twitter:description" content="Find your next vacation destination">
+	<meta name="twitter:image" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/metaTwitter.png">
+
+	<!-- Favicon created by Creative Stall from Noun Project -->
+	<link rel="icon" type="image/png" href="public/images/favicon.ico" sizes="32x32" />
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="public/styles/style.css">
+	<!-- Handlebars Template -->
+	<script id="myTemplate" type="x-handlebars-template">
+
+	<div class="city">
+
+		<div class="cityOverlay" style="background-image: url(https://nomadlist.com{{media.image.[500]}})">
+			<div class="city-name">
+				<h3>{{info.city.name}}</h3>
+				<h4>{{info.country.name}}</h4>
+			</div>
+			<div class="dimmer"></div>
+			<p class="city-cost">$ {{cost.shortTerm.USD}}/mo</p>
+			<p class="city-temp">{{info.weather.temperature.celsius}}	&deg;C</p>
+
+		</div>
+
+
+		<div class="cityInfo">
+			<div class="info-container">
+				<p class="info-text">Wifi Availability:</p>
+				<div class="bar">
+					<div class="progress-bar wifi" style="width:{{percentage}}%; background-color:{{colorPercentage}}">
+						<p class="hover-text">{{percentage}}%</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="info-container">
+				<p class="info-text">Friendly to foreigners:</p>
+				<div class="bar">
+					<div class="progress-bar friendly" style="width:{{friendly}}%; background-color:{{colorFriendly}}">
+						<p class="hover-text">{{friendly}}%</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="info-container">
+				<p class="info-text">Safety:</p>
+				<div class="bar">
+					<div class="progress-bar safety" style="width:{{safety}}%; background-color:{{colorSafety}}">
+						<p class="hover-text">{{safety}}%</p>
+					</div>
+				</div>
+			</div>
+
+			<div> 
+				<div class="info-month">
+					<p class="info-text"> Months to Visit:</p>
+					<p>{{months}}</p>
+				</div>
+			</div> 
+			
+		</div>
+	</div>
+	</script>
+
+</head>
+<body>
+
+<header class="">
+	<h1 class="site-title">
+		<div>Nomad</div> 
+		<div class="logo-container">
+			<img class="logo" src="public/images/logo-2.png" alt="Plane flying around the globe.">
+			<!-- "Travel" by Nerea Martínez Orduña, http://bit.ly/2bbaStQ -->
+		</div> 
+		<div>Travel</div>
+	</h1> <!-- /.site-title -->
+
+	<div class="call-to-action">
+		<p class="cta-1">Already know your destination?</p>
+		<a href="" class="cta-2">Start planning!</a>
+	</div> <!-- /.call-to-action -->
+
+</header> 
+
+<!-- test initial screen -->
+
+<div class="info-screen">
+	<div class="wrapper">
+		<p>Looking to get away?</p>
+		<p>Nomad Travel has you covered. Choose from the dropdown menus to find the perfect destination.</p>
+		<button class="close .cta-2">ok got it</button>
+	</div>
+</div>
+
+<!-- Natural Language Form -->
+<section class="form container initial-height">
+	<div class="form wrapper">
+		<form id="nomadForm">
+			<div>
+				I'm looking for a
+				<select class="costInput">
+					<option value="expensive" class="cheap">expensive</option>
+					<option value="affordable" class="cheap">affordable</option>
+					<option value="cheap" class="cheap">cheap</option>
+					
+				</select>
+				vacation in a
+				<select class="climateInput">
+					<option value="warm">warm</option>
+					<option value="cold">cold</option>
+					<option value="hot">hot</option>
+					
+				</select>
+				climate to
+				<select class="activityInput">
+					<option value="partying">party</option>
+					<option value="working">work</option>
+					<option value="relaxing">relax</option>
+				</select>
+				.
+			</div>
+			<div class="submit-form">
+				<input type="submit" class="submit" value="Find a city!">
+			</div>
+		</form>
+	</div> <!-- /.form wrapper -->
+</section> <!-- /.form container -->
+
+<!-- Result Container -->
+<section id="result-container" class="result container">
+	<div class="result wrapper">
+		<h2>Choose a Destination</h2>
+		<div id="result">
+			<!-- This is where we append the result template!  -->
+		</div> <!-- /#result -->
+		<button class="see_more">See More Cities</button>
+	</div> <!-- /.result wrapper -->
+</section> <!-- /.result container -->
+
+
+<!-- Footer -->
+<footer>
+	<div>
+		<p>© 2016 All rights reserved.</p>
+	</div>
+	<div>
+		<p>Created by <a href="http://willstanton.io">Will Stanton</a>, <a href="http://www.kseniacodes.io">Ksenia Veriguina</a>, and <a href="http://www.jentaylorcodes.com/">Jen Taylor</a> using the <span><a href="https://nomadlist.com/">Nomad List</a></span> API.</p>
+	</div>
+</footer>
+
+<!-- Loading Screen -->
+<div class="loading-screen">
+	<div class="loading-container" id="loading-container">
+		
+		<!-- "Globe" by artworkbean, http://bit.ly/2blsHUj -->
+
+	</div> <!-- /.svg.container -->
+</div>
+
+
+	<!-- Handlebars cdn -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
+	<!-- Lazy Line Painter -->
+    <script src="public/scripts/jquery.lazylinepainter-1.7.0.js"></script>
+    <!-- Laxy Line Painter SVG -->
+    <script src="public/scripts/loading-page-js.js"></script>
+    <!-- JavaScript -->
+	<script src="dev/scripts/main.js"></script>
+	
+
+</body>
+</html>
