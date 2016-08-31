@@ -8,6 +8,7 @@
 .result.wrapper {
 	background-color: $color-e;
 	padding: 50px;
+	border-radius: 5px;
 
 	@media all and (max-width: 550px) {
 		padding: 25px;	
@@ -76,6 +77,7 @@ h2 {
 // CITY IMAGE 
 
 .cityOverlay {
+	background-color: $color-a;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 50%;
@@ -83,12 +85,54 @@ h2 {
 	width: 50%;
 	height: 300px;
 	position: relative;
-
 	display: flex;
 	-webkit-display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-content: center;
+	.dimmer {
+		position: absolute;
+		border-radius: 5px;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.3);
+	}
+	h3, h4 {
+		font-family: $header-font;
+		text-align: center;
+		color: $color-e;
+		margin: 0 auto;
+	}
+	h3 {
+		font-size: 2rem;
+	}
+	h4 {
+		font-size: 1.3rem;
+	}
+	p {
+		font-family: $body-font;
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: $color-e;
+		margin: 0;
+		padding-top: 10px;
+	}
+	.city-cost {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding-left: 10px;
+	}
+	.city-temp {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding-right: 10px;
+	}
 
 	@media all and (max-width: 550px) {
 		width: 100%;
@@ -97,56 +141,6 @@ h2 {
 
 .city-name {
 	z-index: 100;
-}
-
-.cityOverlay .dimmer {
-	position: absolute;
-	border-radius: 5px;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,0.3);
-}
-
-.cityOverlay h3, .cityOverlay h4 {
-	font-family: $header-font;
-	text-align: center;
-	color: $color-e;
-	margin: 0 auto;
-}
-
-.cityOverlay h3 {
-	font-size: 2rem;
-}
-
-.cityOverlay h4 {
-	font-size: 1.3rem;
-}
-
-.cityOverlay p {
-	font-family: $body-font;
-	font-size: 1.2rem;
-	font-weight: 600;
-	color: $color-e;
-	margin: 0;
-	padding-top: 10px;
-}
-
-.cityOverlay .city-cost {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding-left: 10px;
-}
-
-.cityOverlay .city-temp {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding-right: 10px;
 }
 
 // CITY INFORMATION 
@@ -188,6 +182,7 @@ h2 {
 	font-weight: 600;
 	padding-bottom: 5px;
 	text-transform: uppercase;
+	color: $color-a;
 
 	@media all and (max-width: 700px) {
 		font-size: 1rem;
@@ -204,35 +199,9 @@ h2 {
 	background-color: $color-c;
 	border-radius: 5px;
 }
-
-.wifi {
-	background-color: $color-b;
+.progress-bar {
 	padding: 5px;
 	border-radius: 5px;
-}
-
-.wifi-text {
-	color: $color-b;
-}
-
-.friendly {
-	background-color: $color-d;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-.friendly-text {
-	color: $color-d;
-}
-
-.safety {
-	background-color: $color-b;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-.safety-text {
-	color: $color-b;
 }
 
 .info-month {

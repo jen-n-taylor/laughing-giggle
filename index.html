@@ -6,6 +6,23 @@
 
 	<!-- Viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta name="description" content="Find your next vacation destination">
+	  
+	<!-- Open Graph General (Facebook & Pinterest) -->
+	<meta property="og:title" content="Nomad Travel">
+	<meta property="og:url" content="https://kseniaveriguina.github.io/laughing-giggle">
+	<meta property="og:description" content="Find your next vacation destination">
+	<meta property="og:image" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/meta.png">
+	<meta property="og:image:url" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/meta.png">
+
+	<!-- Twitter card meta -->
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:creator" content="@ksenia_codes">
+	<meta name="twitter:title" content="Nomad Travel">
+	<meta name="" ="twitter:description" content="Find your next vacation destination">
+	<meta name="twitter:image" content="https://kseniaveriguina.github.io/laughing-giggle/public/images/metaTwitter.png">
+
 	<!-- Favicon created by Creative Stall from Noun Project -->
 	<link rel="icon" type="image/png" href="public/images/favicon.ico" sizes="32x32" />
 	<!-- CSS -->
@@ -29,27 +46,27 @@
 
 		<div class="cityInfo">
 			<div class="info-container">
-				<p class="info-text wifi-text">Wifi Availability:</p>
+				<p class="info-text">Wifi Availability:</p>
 				<div class="bar">
-					<div class="wifi" style="width:{{percentage}}%">
+					<div class="progress-bar wifi" style="width:{{percentage}}%; background-color:{{colorPercentage}}">
 						<p class="hover-text">{{percentage}}%</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="info-container">
-				<p class="info-text friendly-text">Friendly to foreigners:</p>
+				<p class="info-text">Friendly to foreigners:</p>
 				<div class="bar">
-					<div class="friendly" style="width:{{friendly}}%">
+					<div class="progress-bar friendly" style="width:{{friendly}}%; background-color:{{colorFriendly}}">
 						<p class="hover-text">{{friendly}}%</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="info-container">
-				<p class="info-text safety-text">Safety:</p>
+				<p class="info-text">Safety:</p>
 				<div class="bar">
-					<div class="safety" style="width:{{safety}}%" >
+					<div class="progress-bar safety" style="width:{{safety}}%; background-color:{{colorSafety}}">
 						<p class="hover-text">{{safety}}%</p>
 					</div>
 				</div>
@@ -86,8 +103,18 @@
 
 </header> 
 
+<!-- test initial screen -->
+
+<div class="info-screen">
+	<div class="wrapper">
+		<p>Looking to get away?</p>
+		<p>Nomad Travel has you covered. Choose from the dropdown menus to find the perfect destination.</p>
+		<button class="close .cta-2">ok got it</button>
+	</div>
+</div>
+
 <!-- Natural Language Form -->
-<section class="form container">
+<section class="form container initial-height">
 	<div class="form wrapper">
 		<form id="nomadForm">
 			<div>
@@ -146,7 +173,6 @@
 <div class="loading-screen">
 	<div class="loading-container" id="loading-container">
 		
-
 		<!-- "Globe" by artworkbean, http://bit.ly/2blsHUj -->
 
 	</div> <!-- /.svg.container -->

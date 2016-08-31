@@ -1,5 +1,5 @@
 
-// ---------- LANGUAGE FORM ------------
+// ---------- LOADING SCREEN AND INFO SCREEN ------------
 
 .loading-screen {
 	background: $color-a;
@@ -24,5 +24,57 @@
 .loading-container svg {
 	height: 400px;
 }
+
+// test info-screen
+
+.info-screen {
+	background-color: $color-a;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 200;
+	color: white;
+	font-family: $body-font;
+	font-size: 1.5rem;
+	line-height: 160%;
+	letter-spacing: 1px;
+	display: flex;
+	align-items: center;
+	.wrapper {
+		max-width: 640px;
+		padding: 50px;
+	}
+	.close {
+		font-size: 1.3rem;
+		font-weight: 600;
+		letter-spacing: 2px;
+		display: block;
+		// margin: 0 auto;
+		margin-top: 25px;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 15px 30px;
+		border: none;
+		border-radius: 30px;
+		background-color: $color-b;
+		color: $color-e;
+		transition: background-color .5s;
+
+		&:hover {
+			background-color: $color-d;
+		}
+
+		@media all and (max-width: 550px) {
+			font-size: 1rem;
+		}
+
+		@media all and (max-width: 400px) {
+			font-size: .8rem;	
+		}
+	}
+}
+
 
 

@@ -77,10 +77,17 @@ option {
 }
 
 .form.container {
-	height: calc(100vh - 103px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+// this height compensates for header+footer height difference
+.initial-height {
+	height: calc(100vh - 237px);
+}
+.secondary-height {
+	height: calc(100vh - 103px);
 }
 
 
